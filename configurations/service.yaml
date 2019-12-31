@@ -1,0 +1,15 @@
+service:
+  name: einfach-msg
+  debug: false
+  timezone: "Asia/Jakarta"
+
+server:
+  host: "localhost"
+  port: "8080"
+  write_timeout: 10 # in second
+  read_timeout: 10 # in second
+  shutdown_timeout: 5 # in second
+
+database:
+  host: "localhost"
+  port: "27017"
