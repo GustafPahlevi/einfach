@@ -22,8 +22,8 @@ go mod tidy && go mod vendor
 ```
 
 ### 3. Setup database
-1. Install mongodb in your local machine
-2. setup the database configuration with details below:
+1. Install mongodb on your local machine
+2. setup the database configurations with details below:
 ```sh
 create database name = message
 create database collection = message_collection
@@ -37,7 +37,7 @@ go run main.go serve
 ### 5. Use the application
 Endpoint is available:
 ```sh
- http://localhost:8080/v1/message
+http://localhost:8080/v1/message
 ```
 
 Method are available:
