@@ -16,7 +16,10 @@ type Structure struct {
 		ShutdownTimeout time.Duration `yaml:"shutdown_timeout"`
 	} `yaml:"server"`
 	Database struct {
-		Port string `yaml:"port"`
-		Host string `yaml:"host"`
+		Port       string        `yaml:"port"`
+		Host       string        `yaml:"host"`
+		Name       string        `yaml:"name"`
+		Collection string        `yaml:"collection"`
+		Timeout    time.Duration `yaml:"timeout"`
 	} `yaml:"database"`
 }
