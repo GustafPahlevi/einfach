@@ -1,6 +1,10 @@
 # Einfach-Message
 _Einfach_ meaning __simple__ in English. Einfach-Message is a simple API service application ‍💻
 
+__Cases :__  
+1. User could post message as sending the message. 
+2. User could get all delivered message.
+
 ## Prerequisites
 - [Golang 1.12.7][go] as a Programming Language
 - [MongoDB Go Driver][mongodb] as persistence storage
@@ -21,8 +25,8 @@ go mod tidy && go mod vendor
 1. Install mongodb in your local machine
 2. setup the database configuration with details below:
 ```sh
-database name: "message"
-collection: "message_collection"
+create database name = message
+create database collection = message_collection
 ```
 
 ### 4. Run the application
