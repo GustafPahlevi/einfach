@@ -4,7 +4,8 @@ import (
 	"einfach-msg/model"
 )
 
-type Collection interface {
+// Collector is an interface that MUST comply with mongodb collection
+type Collector interface {
 	Insert(request model.Model) error
 	Get() ([]*model.Model, error)
 }

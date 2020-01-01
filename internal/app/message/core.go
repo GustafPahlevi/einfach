@@ -5,16 +5,19 @@ import (
 )
 
 type (
+	// Message is a compulsory dependencies or configuration for message service
 	Message struct {
-		collection contract.Collection
+		collection contract.Collector
 	}
 
+	// ResponseStatus used as http response model in create action
 	ResponseStatus struct {
 		Status string `json:"status"`
 	}
 )
 
-func New(collection contract.Collection) *Message {
+// New will instantiate Message
+func New(collection contract.Collector) *Message {
 	return &Message{
 		collection: collection,
 	}

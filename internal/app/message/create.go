@@ -10,6 +10,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Create is main handler for create action
 func (m *Message) Create(w http.ResponseWriter, r *http.Request) {
 	var request model.Model
 	reqBody, err := ioutil.ReadAll(r.Body)

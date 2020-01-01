@@ -7,12 +7,15 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Command is a main command which will instruct all of the available service
 type Command struct{}
 
+// New will instantiate Command itself
 func New() *Command {
 	return &Command{}
 }
 
+// Execute will read argument and run the command if it's valid
 func (c *Command) Execute() {
 	args := os.Args[1:]
 
@@ -21,7 +24,6 @@ func (c *Command) Execute() {
 		return
 	}
 
-	// TODO create function to load config
 	serve := served.New()
 
 	switch args[0] {

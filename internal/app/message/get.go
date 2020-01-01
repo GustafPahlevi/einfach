@@ -8,6 +8,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+// Get is main handler for get action
 func (m *Message) Get(w http.ResponseWriter, r *http.Request) {
 	var response []model.Model
 	log.Info("get request for retrieving all message")

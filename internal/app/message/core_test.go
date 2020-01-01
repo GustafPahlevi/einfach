@@ -13,7 +13,7 @@ func TestNew(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	collectionMock := mock.NewMockCollection(ctrl)
 	type args struct {
-		collection contract.Collection
+		collection contract.Collector
 	}
 	tests := []struct {
 		name string

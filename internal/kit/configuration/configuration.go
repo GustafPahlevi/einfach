@@ -12,6 +12,7 @@ const (
 	defaultPath = "./configurations/service.yaml"
 )
 
+// Read is a kit that will read the configuration
 func Read(path string) (config configurations.Structure, err error) {
 	if path == "" {
 		path = defaultPath

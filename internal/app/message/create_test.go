@@ -26,7 +26,7 @@ func TestMessage_Create(t *testing.T) {
 
 	body, _ := json.Marshal(request)
 	type fields struct {
-		collection contract.Collection
+		collection contract.Collector
 	}
 	type args struct {
 		w http.ResponseWriter

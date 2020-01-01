@@ -12,11 +12,13 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// Collection is a compulsory dependencies or configuration for mongodb collection
 type Collection struct {
 	collection *mongo.Collection
 	dbTimeout  time.Duration
 }
 
+// New will instantiate mongodb collection
 func New(collection *mongo.Collection, dbTimeout time.Duration) *Collection {
 	return &Collection{
 		collection: collection,
@@ -24,6 +26,7 @@ func New(collection *mongo.Collection, dbTimeout time.Duration) *Collection {
 	}
 }
 
+// Insert document to mongodb
 func (c *Collection) Insert(request model.Model) error {
 	ctx, cancel := context.WithTimeout(context.Background(), c.dbTimeout*time.Second)
 	defer cancel()
@@ -44,6 +47,7 @@ func (c *Collection) Insert(request model.Model) error {
 	return nil
 }
 
+// Get document from mongodb
 func (c *Collection) Get() ([]*model.Model, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), c.dbTimeout*time.Second)
 	defer cancel()

@@ -2,6 +2,7 @@ package configurations
 
 import "time"
 
+// Structure is service structure that reflect to service configurations
 type Structure struct {
 	Service struct {
 		Name     string `yaml:"name"`

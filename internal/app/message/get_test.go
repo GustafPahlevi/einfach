@@ -18,7 +18,7 @@ func TestMessage_Get(t *testing.T) {
 	collectionMock := mock.NewMockCollection(ctrl)
 
 	type fields struct {
-		collection contract.Collection
+		collection contract.Collector
 	}
 	type args struct {
 		w http.ResponseWriter

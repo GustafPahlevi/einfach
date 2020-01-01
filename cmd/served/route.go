@@ -18,16 +18,19 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// Route responsible handle http serve and register routes
 type Route struct{}
 
 const (
 	defaultPath = "./configurations/service.yaml"
 )
 
+// New will instantiate Route itself
 func New() *Route {
 	return &Route{}
 }
 
+// HTTP is function that will serve HTTP, instantiate all dependencies and register all routes
 func (r *Route) HTTP() {
 	router := mux.NewRouter()
 	config, err := configuration.Read(defaultPath)
