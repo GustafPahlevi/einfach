@@ -1,5 +1,5 @@
 # Einfach-Message
-_Einfach_ meaning __simple__ in English. This is a simple API service application.
+_Einfach_ meaning __simple__ in English. Einfach-Message is a simple API service application ‍💻
 
 ## Prerequisites
 - [Golang 1.12.7][go] as a Programming Language
@@ -8,18 +8,16 @@ _Einfach_ meaning __simple__ in English. This is a simple API service applicatio
 ## Usage
 
 ### 1. Clone this repository to any desired directory.
-
 ```sh
 git clone https://github.com/GustafPahlevi/einfach-msg.git
 ```
 
 ### 2. Install all required dependencies.
-
 ```sh
 go mod tidy && go mod vendor
 ```
 
-### 4. Setup database
+### 3. Setup database
 1. Install mongodb in your local machine
 2. setup the database configuration with details below:
 ```sh
@@ -27,10 +25,37 @@ database name: "message"
 collection: "message_collection"
 ```
 
-### 5. Run the application
-
+### 4. Run the application
 ```sh
 go run main.go serve
+```
+
+### 5. Use the application
+Endpoint is available:
+```sh
+ http://localhost:8080/v1/message
+```
+
+Method are available:
+- GET
+- POST
+
+Or, you could import these cURL:
+- __Get__ message action: 
+```sh
+curl --location --request GET 'http://localhost:8080/v1/message' \
+--header 'Content-Type: application/json'
+```
+- __Create__ message action:
+```sh
+curl --location --request POST 'http://localhost:8080/v1/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"sender_id":"12345",
+	"receiver_id":"67890",
+	"subject":"Hello",
+	"message":"Hello World!"
+}'
 ```
 
 ## References
