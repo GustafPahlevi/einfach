@@ -2,8 +2,10 @@ package served
 
 import (
 	"context"
-	"einfach-msg/cmd/messaged"
+	"einfach-msg/configurations"
+	"einfach-msg/internal/app/message"
 	"einfach-msg/internal/kit/configuration"
+	mongoKit "einfach-msg/internal/kit/mongo"
 	"net/http"
 	"os"
 	"os/signal"
@@ -12,6 +14,8 @@ import (
 
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type Route struct{}
@@ -31,12 +35,17 @@ func (r *Route) HTTP() {
 		log.Fatalf("error while load configurations, got: %v", err)
 	}
 
+	msg, err := r.initMessageClient(config)
+	if err != nil {
+		log.Fatalf("error while initiate message client, got: %v", err)
+	}
+
+	log.Info("successfully initiate all dependencies")
+
 	v1 := router.PathPrefix("/v1").Subrouter()
 
-	message := messaged.New()
-
-	v1.HandleFunc("/message", message.Get).Methods(http.MethodGet)
-	v1.HandleFunc("/message", message.Create).Methods(http.MethodPost)
+	v1.HandleFunc("/message", msg.Get).Methods(http.MethodGet)
+	v1.HandleFunc("/message", msg.Create).Methods(http.MethodPost)
 
 	srv := &http.Server{
 		Addr:    ":" + config.Server.Port,
@@ -78,4 +87,23 @@ func (r *Route) HTTP() {
 	}
 
 	log.Info("server gracefully shutdown")
+}
+
+func (r *Route) initMessageClient(config configurations.Structure) (*message.Message, error) {
+	mongoURI := "mongodb://" + config.Database.Host + ":" + config.Database.Port
+	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
+	if err != nil {
+		return &message.Message{}, err
+	}
+
+	mongoCtx, _ := context.WithTimeout(context.Background(), config.Database.Timeout*time.Second)
+	err = client.Connect(mongoCtx)
+	if err != nil {
+		return &message.Message{}, err
+	}
+
+	collection := client.Database(config.Database.Name).Collection(config.Database.Collection)
+	collectionKit := mongoKit.New(collection, config.Database.Timeout)
+
+	return message.New(collectionKit), nil
 }
