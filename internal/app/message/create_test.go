@@ -2,11 +2,11 @@ package message
 
 import (
 	"bytes"
-	"einfach-msg/contract"
-	"einfach-msg/model"
-	"einfach-msg/test/mock"
 	"encoding/json"
 	"errors"
+	"go-simple-svc/contract"
+	"go-simple-svc/model"
+	"go-simple-svc/test/mock"
 	"net/http"
 	"net/http/httptest"
 	"testing"

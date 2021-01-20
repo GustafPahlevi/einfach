@@ -1,4 +1,4 @@
-module einfach-msg
+module go-simple-svc
 
 go 1.12
 

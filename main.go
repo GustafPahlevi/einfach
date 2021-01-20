@@ -1,7 +1,7 @@
 package main
 
 import (
-	"einfach-msg/cmd"
+	"go-simple-svc/cmd"
 	"os"
 
 	log "github.com/sirupsen/logrus"

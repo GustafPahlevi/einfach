@@ -1,8 +1,8 @@
 package message
 
 import (
-	"einfach-msg/contract"
-	"einfach-msg/test/mock"
+	"go-simple-svc/contract"
+	"go-simple-svc/test/mock"
 	"reflect"
 	"testing"
 

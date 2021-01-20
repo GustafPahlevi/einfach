@@ -1,8 +1,8 @@
 package message
 
 import (
-	"einfach-msg/model"
 	"encoding/json"
+	"go-simple-svc/model"
 	"net/http"
 
 	log "github.com/sirupsen/logrus"

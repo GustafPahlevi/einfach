@@ -1,5 +1,5 @@
 service:
-  name: einfach-msg
+  name: go-simple-svc
   debug: false
   timezone: "Asia/Jakarta"
 
@@ -11,7 +11,8 @@ server:
   shutdown_timeout: 5 # in second
 
 database:
-  host: "localhost"
+#  host: "localhost"
+  host: "host.docker.internal"
   port: "27017"
   name: "message"
   collection: "message_collection"

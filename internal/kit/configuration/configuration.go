@@ -1,7 +1,7 @@
 package configuration
 
 import (
-	"einfach-msg/configurations"
+	"go-simple-svc/configurations"
 	"log"
 	"os"
 

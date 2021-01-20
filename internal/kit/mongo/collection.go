@@ -2,9 +2,10 @@ package mongo
 
 import (
 	"context"
-	"einfach-msg/constant"
-	"einfach-msg/internal/kit/datetime"
-	"einfach-msg/model"
+	"fmt"
+	"go-simple-svc/constant"
+	"go-simple-svc/internal/kit/datetime"
+	"go-simple-svc/model"
 	"time"
 
 	"github.com/jonboulle/clockwork"
@@ -64,6 +65,11 @@ func (c *Collection) Get() ([]*model.Model, error) {
 		if err != nil {
 			return nil, err
 		}
+		fmt.Println("msg_id: ", message.ID)
+		fmt.Println("msg: ", message.ReceiverID)
+		fmt.Println("msg: ", message.SenderID)
+		fmt.Println("msg: ", message.Message)
+		fmt.Println("msg: ", message.Status)
 		messages = append(messages, &message)
 	}
 

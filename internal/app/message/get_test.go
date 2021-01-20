@@ -1,9 +1,9 @@
 package message
 
 import (
-	"einfach-msg/contract"
-	"einfach-msg/model"
-	"einfach-msg/test/mock"
+	"go-simple-svc/contract"
+	"go-simple-svc/model"
+	"go-simple-svc/test/mock"
 	"net/http"
 	"net/http/httptest"
 	"testing"

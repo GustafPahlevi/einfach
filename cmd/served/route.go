@@ -2,10 +2,10 @@ package served
 
 import (
 	"context"
-	"einfach-msg/configurations"
-	"einfach-msg/internal/app/message"
-	"einfach-msg/internal/kit/configuration"
-	mongoKit "einfach-msg/internal/kit/mongo"
+	"go-simple-svc/configurations"
+	"go-simple-svc/internal/app/message"
+	"go-simple-svc/internal/kit/configuration"
+	mongoKit "go-simple-svc/internal/kit/mongo"
 	"net/http"
 	"os"
 	"os/signal"
@@ -46,6 +46,10 @@ func (r *Route) HTTP() {
 	log.Info("successfully initiate all dependencies")
 
 	v1 := router.PathPrefix("/v1").Subrouter()
+
+	v1.HandleFunc("/healthcheck", func(writer http.ResponseWriter, request *http.Request) {
+
+	}).Methods(http.MethodGet)
 
 	v1.HandleFunc("/message", msg.Get).Methods(http.MethodGet)
 	v1.HandleFunc("/message", msg.Create).Methods(http.MethodPost)

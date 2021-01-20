@@ -5,9 +5,10 @@
 package mock
 
 import (
-	model "einfach-msg/model"
-	gomock "github.com/golang/mock/gomock"
+	model "go-simple-svc/model"
 	reflect "reflect"
+
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockCollection is a mock of Collection interface

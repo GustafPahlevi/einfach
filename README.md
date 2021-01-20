@@ -13,7 +13,7 @@ __Cases :__
 
 ### 1. Clone this repository to any desired directory.
 ```sh
-git clone https://github.com/GustafPahlevi/einfach-msg.git
+git clone https://github.com/GustafPahlevi/go-simple-svc.git
 ```
 
 ### 2. Install all required dependencies.

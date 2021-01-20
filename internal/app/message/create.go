@@ -1,9 +1,9 @@
 package message
 
 import (
-	"einfach-msg/constant"
-	"einfach-msg/model"
 	"encoding/json"
+	"go-simple-svc/constant"
+	"go-simple-svc/model"
 	"io/ioutil"
 	"net/http"
 
