@@ -12,11 +12,11 @@ import (
 	"github.com/GustafPahlevi/go-simple-svc/internal/app/message"
 	"github.com/GustafPahlevi/go-simple-svc/internal/kit/configuration"
 	mongoKit "github.com/GustafPahlevi/go-simple-svc/internal/kit/mongo"
-
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
 // Route responsible handle http serve and register routes
@@ -48,8 +48,12 @@ func (r *Route) HTTP() {
 
 	v1 := router.PathPrefix("/v1").Subrouter()
 
-	v1.HandleFunc("/healthcheck", func(writer http.ResponseWriter, request *http.Request) {
-
+	v1.HandleFunc("/healthcheck", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		_, err := w.Write([]byte(`{"status":"service is ok"}`))
+		if err != nil {
+			log.Warnf("error while check service healthy, got: %v", err)
+		}
 	}).Methods(http.MethodGet)
 
 	v1.HandleFunc("/message", msg.Get).Methods(http.MethodGet)
@@ -105,7 +109,13 @@ func (r *Route) initMessageClient(config configurations.Structure) (*message.Mes
 	}
 
 	mongoCtx, _ := context.WithTimeout(context.Background(), config.Database.Timeout*time.Second)
+
 	err = client.Connect(mongoCtx)
+	if err != nil {
+		return &message.Message{}, err
+	}
+
+	err = client.Ping(mongoCtx, readpref.Primary())
 	if err != nil {
 		return &message.Message{}, err
 	}
