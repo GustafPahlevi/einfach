@@ -2,8 +2,9 @@ package message
 
 import (
 	"encoding/json"
-	"go-simple-svc/model"
 	"net/http"
+
+	"github.com/GustafPahlevi/go-simple-svc/model"
 
 	log "github.com/sirupsen/logrus"
 )

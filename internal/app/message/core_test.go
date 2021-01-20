@@ -1,10 +1,11 @@
 package message
 
 import (
-	"go-simple-svc/contract"
-	"go-simple-svc/test/mock"
 	"reflect"
 	"testing"
+
+	"github.com/GustafPahlevi/go-simple-svc/contract"
+	"github.com/GustafPahlevi/go-simple-svc/test/mock"
 
 	"github.com/golang/mock/gomock"
 )

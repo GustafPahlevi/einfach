@@ -4,12 +4,13 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"go-simple-svc/contract"
-	"go-simple-svc/model"
-	"go-simple-svc/test/mock"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"github.com/GustafPahlevi/go-simple-svc/contract"
+	"github.com/GustafPahlevi/go-simple-svc/model"
+	"github.com/GustafPahlevi/go-simple-svc/test/mock"
 
 	"github.com/golang/mock/gomock"
 )

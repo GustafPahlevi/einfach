@@ -1,8 +1,9 @@
 package main
 
 import (
-	"go-simple-svc/cmd"
 	"os"
+
+	"github.com/GustafPahlevi/go-simple-svc/cmd"
 
 	log "github.com/sirupsen/logrus"
 )

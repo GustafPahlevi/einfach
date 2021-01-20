@@ -5,8 +5,9 @@
 package mock
 
 import (
-	model "go-simple-svc/model"
 	reflect "reflect"
+
+	model "github.com/GustafPahlevi/go-simple-svc/model"
 
 	gomock "github.com/golang/mock/gomock"
 )

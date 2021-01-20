@@ -1,8 +1,9 @@
 package cmd
 
 import (
-	"go-simple-svc/cmd/served"
 	"os"
+
+	"github.com/GustafPahlevi/go-simple-svc/cmd/served"
 
 	log "github.com/sirupsen/logrus"
 )

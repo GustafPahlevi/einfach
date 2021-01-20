@@ -1,9 +1,10 @@
 package configuration
 
 import (
-	"go-simple-svc/configurations"
 	"log"
 	"os"
+
+	"github.com/GustafPahlevi/go-simple-svc/configurations"
 
 	"gopkg.in/yaml.v2"
 )

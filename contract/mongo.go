@@ -1,7 +1,7 @@
 package contract
 
 import (
-	"go-simple-svc/model"
+	"github.com/GustafPahlevi/go-simple-svc/model"
 )
 
 // Collector is an interface that MUST comply with mongodb collection

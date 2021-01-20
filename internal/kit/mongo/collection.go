@@ -3,10 +3,11 @@ package mongo
 import (
 	"context"
 	"fmt"
-	"go-simple-svc/constant"
-	"go-simple-svc/internal/kit/datetime"
-	"go-simple-svc/model"
 	"time"
+
+	"github.com/GustafPahlevi/go-simple-svc/constant"
+	"github.com/GustafPahlevi/go-simple-svc/internal/kit/datetime"
+	"github.com/GustafPahlevi/go-simple-svc/model"
 
 	"github.com/jonboulle/clockwork"
 	"go.mongodb.org/mongo-driver/bson"

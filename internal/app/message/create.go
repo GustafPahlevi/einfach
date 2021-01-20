@@ -2,10 +2,11 @@ package message
 
 import (
 	"encoding/json"
-	"go-simple-svc/constant"
-	"go-simple-svc/model"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/GustafPahlevi/go-simple-svc/constant"
+	"github.com/GustafPahlevi/go-simple-svc/model"
 
 	log "github.com/sirupsen/logrus"
 )

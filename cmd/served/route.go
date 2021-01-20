@@ -2,15 +2,16 @@ package served
 
 import (
 	"context"
-	"go-simple-svc/configurations"
-	"go-simple-svc/internal/app/message"
-	"go-simple-svc/internal/kit/configuration"
-	mongoKit "go-simple-svc/internal/kit/mongo"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/GustafPahlevi/go-simple-svc/configurations"
+	"github.com/GustafPahlevi/go-simple-svc/internal/app/message"
+	"github.com/GustafPahlevi/go-simple-svc/internal/kit/configuration"
+	mongoKit "github.com/GustafPahlevi/go-simple-svc/internal/kit/mongo"
 
 	"github.com/gorilla/mux"
 	log "github.com/sirupsen/logrus"

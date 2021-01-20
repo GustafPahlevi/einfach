@@ -1,7 +1,7 @@
 package message
 
 import (
-	"go-simple-svc/contract"
+	"github.com/GustafPahlevi/go-simple-svc/contract"
 )
 
 type (
