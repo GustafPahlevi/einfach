@@ -11,8 +11,7 @@ server:
   shutdown_timeout: 5 # in second
 
 database:
-#  host: "localhost"
-  host: "host.docker.internal"
+  host: "localhost"
   port: "27017"
   name: "message"
   collection: "message_collection"

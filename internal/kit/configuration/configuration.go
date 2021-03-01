@@ -11,6 +11,7 @@ import (
 
 const (
 	defaultPath = "./configurations/service.yaml"
+	//defaultPath = "../app/configurations/service.yaml"
 )
 
 // Read is a kit that will read the configuration
