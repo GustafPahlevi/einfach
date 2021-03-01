@@ -2,3 +2,4 @@ vendor
 .idea
 .vscode
 go-simple-svc
+key.json
